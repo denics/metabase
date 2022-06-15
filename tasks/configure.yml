@@ -2,7 +2,7 @@
 
 - name: ensure metabase has started (this can take a while...)
   uri:
-    url: "http://localhost:{{ metabase_port }}/api/session/properties"
+    url: "http://{{ metabase_host }}:{{ metabase_port }}/api/session/properties"
     status_code: 200
   register: metabase_api_session
   until: metabase_api_session is not failed
