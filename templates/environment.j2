@@ -1,6 +1,6 @@
 Environment="MB_PASSWORD_COMPLEXITY=normal"
 Environment="MB_PASSWORD_LENGTH=10"
-Environment="MB_JETTY_HOST={{ metabase_host }}"
+Environment="MB_JETTY_HOST={{ metabase_bind }}"
 Environment="MB_JETTY_PORT={{ metabase_port }}"
 {% if use_own_database %}
 Environment="MB_DB_DBNAME={{ metabase_db }}"
@@ -10,3 +10,9 @@ Environment="MB_DB_USER={{ metabase_db_user }}"
 Environment="MB_DB_PASS={{ metabase_db_pass }}"
 Environment="MB_DB_HOST={{ metabase_db_host }}"
 {% endif %}
+{% if metabase_use_own_proxy_env %}
+Environment="HTTP_PROXY={{ metabase_http_proxy }}"
+Environment="HTTPS_PROXY={{ metabase_https_proxy }}"
+Environment="NO_PROXY={{ metabase_no_proxy }}"
+{% endif %}
+Environment="MB_ENCRYPTION_SECRET_KEY={{ secret_metabase_encryption }}"
